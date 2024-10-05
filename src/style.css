@@ -19,10 +19,6 @@ body {
     height: 100vh;
 }
 
-body * {
-    /* border: 1px solid red; */
-}
-
 body {
     display: grid;
     grid-template-columns: minmax(30vh, 1fr) 6fr;
@@ -65,24 +61,23 @@ body > div:first-child {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
+    align-items: center;
+    gap: 1.2vmin;
 }
 
 .add-project-form > div:first-of-type {
-    margin-left: 15px;
     font-size: calc(.5rem + 1.2vh);
     margin-bottom: 10px;
 }
 
 .add-project-form > div:last-child > form {
-    margin-left: 15px;
     display: flex;
     justify-content: space-between;
 }
 
 .add-project-form button {
-    position: relative;
-    top: 4vmin;
+    position: absolute;
+    bottom: 1vmin;
     right: 1vmin;
     appearance: none;
     padding: 5px 10px;
@@ -134,13 +129,7 @@ body > div:first-child {
     background-color: #cacaca;
 }
 
-.add-project-form button:hover:active {
-    box-shadow: 2px 2px 2px rgb(206, 206, 206);
-    background-color: #aaaaaa;
-    top: 4.1vmin;
-}
-
-.add-to-do-form button:active {
+.add-project-form button:hover:active, .add-to-do-form button:active {
     box-shadow: 2px 2px 2px rgb(206, 206, 206);
     background-color: #aaaaaa;
     bottom: 0.9vmin;
