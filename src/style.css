@@ -1,0 +1,552 @@
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+:root {
+    font-size: 0.625;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+}
+
+body {
+    height: 100vh;
+}
+
+body * {
+    /* border: 1px solid red; */
+}
+
+body {
+    display: grid;
+    grid-template-columns: minmax(30vh, 1fr) 6fr;
+    grid-template-rows: 0.8fr 4fr;
+}
+
+body > div:first-child {
+    position: fixed;
+    z-index: 1;
+}
+
+.add-to-do, .add-project {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-to-do-form {
+    background-color: rgb(254, 246, 244);
+    opacity: 1;
+    width: 60vmin;
+    height: 45vmin;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.add-project-form {
+    position: relative;
+    background-color: rgb(254, 246, 244);
+    opacity: 1;
+    width: 45vmin;
+    height: 20vmin;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+}
+
+.add-project-form > div:first-of-type {
+    margin-left: 15px;
+    font-size: calc(.5rem + 1.2vh);
+    margin-bottom: 10px;
+}
+
+.add-project-form > div:last-child > form {
+    margin-left: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-project-form button {
+    position: relative;
+    top: 4vmin;
+    right: 1vmin;
+    appearance: none;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e2e2e2;
+}
+
+.add-to-do-form > span + div {
+    position: absolute;
+    height: 10vmin;
+    width: 10vmin;
+    background-image: url("./img/avatar.png");
+    background-size: cover;
+    right: 10vmin;
+    top: 10vmin;
+    border-radius: 50%;
+    background-color: rgb(81, 81, 81);
+}
+
+.add-to-do-form > span + div > div {
+    position: absolute;
+    top: 10vmin;
+}
+
+.add-to-do-form > span + div > div div:first-child {
+    font-size: calc(.5rem + 1.2vh);
+    white-space: nowrap;
+}
+
+.add-to-do-form > span + div > div div:last-child {
+    font-size: calc(.5rem + .5vh);
+    white-space: nowrap;
+}
+
+.add-to-do-form button {
+    position: absolute;
+    bottom: 1vmin;
+    right: 1vmin;
+    width: 20%;
+    appearance: none;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #e2e2e2;
+}
+
+.add-project-form button:hover, .add-to-do-form button:hover {
+    background-color: #cacaca;
+}
+
+.add-project-form button:hover:active {
+    box-shadow: 2px 2px 2px rgb(206, 206, 206);
+    background-color: #aaaaaa;
+    top: 4.1vmin;
+}
+
+.add-to-do-form button:active {
+    box-shadow: 2px 2px 2px rgb(206, 206, 206);
+    background-color: #aaaaaa;
+    bottom: 0.9vmin;
+}
+
+.add-project-form input {
+    margin-bottom: 10px;
+    appearance: none;
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    padding: 5px 10px;
+    outline: none;
+}
+
+.add-to-do-form input {
+    appearance: none;
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    padding: 5px 10px;
+    outline: none;
+    height: 0.8vmin;
+}
+
+.add-project-form form > div, .add-to-do-form form > div {
+    position: relative;
+}
+
+.add-project input:focus, .add-to-do input:focus {
+    box-shadow: inset 1px 1px 8px rgb(206, 206, 206);
+}
+
+.add-project-form input:invalid + span {
+    position: absolute;
+    top: -20px;
+    right: 5px;
+}
+
+.add-to-do-form input:invalid + span {
+    position: absolute;
+    left: 75%;
+}
+
+.add-project-form input:invalid + span::before, .add-to-do-form input:invalid + span::before {
+    content: "*required";
+    color: red;
+    font-size: calc(.5rem + .5vh);
+}
+
+.add-project-form input::placeholder, .add-to-do-form input::placeholder {
+    color: rgb(182, 177, 177);
+}
+
+.add-project-form input:invalid, .add-to-do-form input:invalid {
+    border: 1px solid red;
+}
+
+.add-to-do-form > span::before, .add-project-form > span::before {
+    position: absolute;
+    content: "✖";
+    top: 0;
+    right: 6px;
+    cursor: pointer;
+}
+
+.add-to-do-form > div{
+    font-size: calc(.5rem + 1vh);
+    height: 100%;
+    background-color: rgb(254, 246, 244);
+    margin-left: 15px;
+}
+
+.add-to-do-form > div div {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    position: relative;
+}
+
+.add-to-do-form form {
+    margin-top: 1vmin;
+    padding: 1.2vmin;
+    gap: 0.8vmin;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-to-do-form select {
+    appearance: none;
+    background-color: #e2e2e2;
+    border-radius: 10px;
+    border: 1px solid #e2e2e2;
+    padding: 5px 10px;
+    outline: none;
+}
+
+
+.side-bar {
+    font-weight: bold;
+    color: white;
+    padding: 20px;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    background-color: #00aeef;
+    display: grid;
+    grid-template-rows: 2fr 1fr 0.4fr 1.8fr 1fr 10fr;
+}
+
+.icon {
+    display: flex;
+    align-items: flex-end;
+}
+
+.icon > div {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgb(81, 81, 81);
+    background-image: url("./img/avatar.png");
+    background-size: contain;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    font-size: calc(.8rem + 1.8vh);
+}
+
+.username {
+    font-size: calc(.5rem + 1vh);
+    text-decoration: none;
+    color: white;
+}
+
+.username:hover {
+    text-decoration: underline;
+}   
+
+.project-header {
+    font-size: calc(.5rem + 1.5vh);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.project-header > img {
+    cursor: pointer;
+    width: calc(.5rem + 1.5vh);
+    height: calc(.5rem + 1.5vh);
+}
+
+.project-header > img:hover {
+    box-sizing: content-box;
+    border-bottom: 1px solid white;
+}
+
+.project-list {
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-list > div {
+    display: flex;
+    height: 40px;
+    gap: 10px;
+}
+
+.project-list > div > div:first-child {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: calc(.5rem + .8vh);   
+    height: 100%;
+    flex: 1 1 80%;
+    padding: 10px;
+    background-color: #a6a6a6;
+    border-radius: 10px;
+}
+
+.project-list > div > div:first-child:hover, 
+.project-list > div > :last-child:hover {
+    background-color: #939393;;
+}
+
+.project-list > div > div:first-child:active, 
+.project-list > div > :last-child:active {
+    background-color: #7e7e7e;
+}
+.project-list > div > div:first-child:active {
+    box-shadow: 2px 2px 4px gray;
+}
+
+.project-list > div > div:first-child img {
+    height: calc(.5rem + 1.2vh);
+}
+
+.project-list > div > :last-child { 
+    cursor: pointer;
+    background-color: #a6a6a6;
+    border-radius: 10px;
+    padding: 8px;
+}
+
+.header {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 45px;
+    border-bottom: 4px solid black;
+}
+
+.header > div:first-child {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    
+}
+
+.project-name {
+    font-size: calc(1.2rem + 3vh);
+    font-weight: bold;
+}
+
+.creation-date {
+    padding-bottom: 9px;
+    font-size: calc(0.8rem + 0.2vh);
+    color: #cfcfcfb5;
+}
+
+.header > div:last-child {
+    font-weight: bold;
+    flex: 1;
+    display: flex;
+    
+}
+
+.header > div:last-child > div {
+    font-size: calc(.8rem + 1.5vh);;
+    display: flex;
+    padding-bottom: 5px;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+.header > div:last-child > div > div {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+}
+
+.header img {
+    height: calc(.8rem + 1.5vh);
+    
+}
+
+.title {
+    flex: 1;
+}
+
+.desc {
+    flex: 2;
+}
+
+.due {
+    flex: 1;
+}
+
+.priority {
+    flex: 1;
+}
+
+.add {
+    flex: .55;
+}
+
+.add img {
+    cursor: pointer;
+    position: absolute;
+    height: calc(3.5rem + 2vh);
+    background-color: #00aeef;
+    border-radius: 50%;
+}
+
+.add img:hover {
+    background-color: #0293c8;
+    box-shadow: 2px 2px 4px rgb(200, 200, 200);
+}
+
+.add img:active {
+    background-color: #0079a5;
+}
+
+.main-content {
+    overflow: scroll;
+    grid-column: 2;
+    grid-row: 2;
+    background-color: #b1eaff;
+    padding: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.to-do {
+    display: flex;
+    height: 60px;
+    flex: 0 0 auto;
+}
+
+.to-do-bar {
+    display: flex;
+    width: 90%;
+    background-color: #00aeef;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 2px 2px 8px rgb(153, 153, 153);
+}
+
+.delete {
+    position: absolute;
+    right: 5px;
+    top: 2px;
+}
+
+.delete::before {
+    content: "✖";
+    cursor: pointer;
+}
+
+.delete:hover {
+    color: red;
+}
+
+.delete:active {
+    top: 3px;
+    color: rgb(208, 0, 0);
+}
+
+.to-do-bar > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: calc(.8rem + 1vh);
+    gap: 2px;
+}
+
+.to-do-title {
+    flex: 1;
+}
+
+.to-do-desc {
+    flex: 2;
+}
+
+.to-do-due {
+    flex: 1;
+}
+
+.to-do-priority {
+    flex: 1;
+}
+
+.to-do-priority img {
+    height: calc(.8rem + 1vh);
+}
+
+.to-do-check {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.to-do-check > div {
+    cursor: pointer;
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+}
+
+.to-do-check > div:hover {
+    box-shadow: 2px 2px 4px rgb(200, 200, 200);
+}
+
+.to-do-check > div:active {
+    margin-top: 3px;
+}
+
+.main-content::-webkit-scrollbar, .project-list::-webkit-scrollbar {
+    display: none;
+} 
+
+.main-content, .project-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
